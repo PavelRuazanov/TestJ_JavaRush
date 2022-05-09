@@ -209,10 +209,12 @@ public class PlayerController {
         } catch (IllegalArgumentException e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-        Integer level = (int) ((Math.sqrt(2500 + 200 * player.getExperience()) - 50) / 100);
-        Integer untilExt = 50 * (level + 1) * (level + 2) - player.getExperience();
-        result.setLevel(level);
-        result.setUntilNextLevel(untilExt);
+        if (player.getExperience()!=null){
+            Integer level = (int) ((Math.sqrt(2500 + 200 * player.getExperience()) - 50) / 100);
+            Integer untilExt = 50 * (level + 1) * (level + 2) - player.getExperience();
+            result.setLevel(level);
+            result.setUntilNextLevel(untilExt);
+        }
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 }
