@@ -192,9 +192,6 @@ public class PlayerController {
         if (!playerService.checkIDExist(id)) {
             return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
-//        Player savedPlayer = playerService.getPlayerById(id);
-        //ResponseEntity<Player> entity = getPlayer(id);
-        //Player savedPlayer = entity.getBody();
         Player savedPlayer;
         savedPlayer = playerService.getPlayerById(id);
         if (player == null) {
